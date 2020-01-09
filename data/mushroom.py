@@ -3,7 +3,6 @@ import json
 import os.path
 import random
 from keras.preprocessing import image
-from keras.applications.resnet50 import preprocess_input
 from keras.utils import to_categorical
 
 def load_data(testset_size=100):
@@ -21,7 +20,6 @@ def load_data(testset_size=100):
             im = image.load_img(img_path, target_size=(224, 224))
             x = image.img_to_array(im)
             x = np.expand_dims(x, axis=0)
-            x = preprocess_input(x)
             XY_data.append([x, y])
 
     random.seed(1)
