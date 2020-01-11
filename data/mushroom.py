@@ -1,17 +1,17 @@
 import numpy as np
 import json
-import os.path
+from os import path
 import random
 from keras.preprocessing import image
 from keras.utils import to_categorical
 
 def load_data(testset_size=100):
-    with open("data/webscraper/luontoportti.json", "r") as f:
+    with open(path.join(path.dirname(path.realpath(__file__)),"aggregated.json"), "r") as f:
         data = json.loads("".join(f.readlines()))
 
     n_classes = len(data)
     class_names = [record["name_fi"] for record in data]
-    class_images = [[os.path.join("data/webscraper/images", image["path"]) for image in record["images"]] for record in data]
+    class_images = [record["images"] for record in data]
 
     XY_data = []
     for i, images in enumerate(class_images):
