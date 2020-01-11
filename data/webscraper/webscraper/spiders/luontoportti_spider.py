@@ -1,7 +1,7 @@
 import scrapy
 
-class MushroomSpider(scrapy.Spider):
-    name = "mushrooms"
+class LuontoporttiSpider(scrapy.Spider):
+    name = "luontoportti"
     download_delay = 2.0
 
     def start_requests(self):
