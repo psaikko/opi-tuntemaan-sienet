@@ -44,7 +44,8 @@ With a dataset of 5212 images from 173 species of mushrooms,
 the trained classifier correctly guesses the mushroom 30% of
 the time, and has a top-5 accuracy of about 60% (based on a test set of 100 images).
 
-Testing the classifier on my own photos gives reasonable results. The distinctive Amanita muscaria (punakärpässieni), Lactarius torminosus (karvarousku), and Calocera viscosa (keltasarvikka) are easily identified. 
+Testing the classifier on my own photos gives reasonable results. The distinctive Amanita muscaria (punakärpässieni), Lactarius torminosus (karvarousku), and Calocera viscosa (keltasarvikka) are easily identified.
+
 ![](./img/results.png)
 
 ## Ideas for further development
