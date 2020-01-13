@@ -67,7 +67,8 @@ ROBOTSTXT_OBEY = True
 #ITEM_PIPELINES = {
 #    'webscraper.pipelines.WebscraperPipeline': 300,
 #}
-ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
+ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1,
+'webscraper.pipelines.WikimediaPipeline': 2}
 IMAGES_STORE = "./images"
 
 

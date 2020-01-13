@@ -44,4 +44,6 @@ while len(dfs):
 
 # filter only ones with finnish name for now
 df = df[df["name_fi"].notna()]
+print("Classes: ", len(df))
+print("Images: ", df['images'].apply(len).sum())
 df[["name_fi","name_latin","images"]].to_json("aggregated.json", orient='records')
