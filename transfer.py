@@ -48,8 +48,14 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 batchsize = 100
 model.fit_generator(datagen.flow(X_train, Y_train, batch_size=batchsize, subset='training'),
     steps_per_epoch=(len(X_train) / batchsize), 
-    epochs=20,
+    epochs=10,
     validation_data=datagen.flow(X_train, Y_train, batch_size=batchsize, subset='validation'))
 
 scores = model.evaluate_generator(datagen.flow(X_test, Y_test))
-print(scores)
+print("Testset scores")
+for (name, score) in zip(["Loss","Accuracy","Top 5"], scores):
+    print("  %s: %.2f" % (name, score))
+
+with open("mushroom-resnet.json", "w") as json_file:
+    json_file.write(model.to_json())
+model.save_weights("mushroom-resnet.h5")
