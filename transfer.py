@@ -12,13 +12,13 @@ import numpy as np
 
 (X_train, Y_train), (X_test, Y_test), class_names = load_data()
 
-datagen = ImageDataGenerator(rotation_range=25, 
-    brightness_range=(0.8,1.2), 
+datagen = ImageDataGenerator(rotation_range=45, 
+    brightness_range=(0.5,1.5), 
     height_shift_range=0.3,
     width_shift_range=0.3,
     horizontal_flip=True,
     fill_mode="reflect",
-    zoom_range=(0.8,1.2),
+    zoom_range=(0.5,1.5),
     validation_split=0.1,
     preprocessing_function=preprocess_input)
 
@@ -48,7 +48,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 batchsize = 100
 model.fit_generator(datagen.flow(X_train, Y_train, batch_size=batchsize, subset='training'),
     steps_per_epoch=(len(X_train) / batchsize), 
-    epochs=10,
+    epochs=20,
     validation_data=datagen.flow(X_train, Y_train, batch_size=batchsize, subset='validation'))
 
 scores = model.evaluate_generator(datagen.flow(X_test, Y_test))
